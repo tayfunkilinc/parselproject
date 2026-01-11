@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { MapVisualization } from './MapVisualization';
 import type { Parcel } from '../lib/supabase';
 
 interface ParcelVisualizationProps {
@@ -64,6 +65,8 @@ export function ParcelVisualization({ parcels }: ParcelVisualizationProps) {
     );
   }
 
+  const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY || '';
+
   return (
     <div className="visualization-container">
       <h2>Parsel Görselleştirme</h2>
@@ -80,6 +83,16 @@ export function ParcelVisualization({ parcels }: ParcelVisualizationProps) {
                   {parcel.ilce && ` / ${parcel.ilce}`}
                   {parcel.mahalle && ` / ${parcel.mahalle}`}
                 </p>
+              )}
+            </div>
+
+            <div className="parcel-map">
+              {apiKey ? (
+                <MapVisualization parcel={parcel} apiKey={apiKey} />
+              ) : (
+                <div className="map-placeholder">
+                  <p>Google Maps API Key gerekli</p>
+                </div>
               )}
             </div>
 

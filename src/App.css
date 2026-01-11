@@ -224,9 +224,26 @@ body {
   color: var(--color-text-secondary);
 }
 
+.parcel-map {
+  width: 100%;
+  height: 300px;
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-background);
+}
+
+.map-placeholder {
+  width: 100%;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-background);
+  color: var(--color-text-secondary);
+}
+
 .parcel-svg {
   width: 100%;
-  height: 350px;
+  height: 250px;
   background: var(--color-background);
 }
 
